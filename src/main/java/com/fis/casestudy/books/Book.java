@@ -15,6 +15,7 @@ public class Book {
 	private int available;
 	private int total;
 
+
 	public Book() {
 	}
 
