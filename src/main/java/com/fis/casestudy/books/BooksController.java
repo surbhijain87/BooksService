@@ -24,11 +24,12 @@ public class BooksController {
 
 	@RequestMapping("/books/{id}")
 	public Book getBooksById(@PathVariable("id") String id) {
+		System.out.println("Getting request for " + id);
 		return repository.findById(id).orElseThrow(() -> new BookNotFoundException(id));
 	}
 
 	@PostMapping("/books/updateAvailability/{bookId}/{incrementCount}")
-	public Book getBooksById(@PathVariable("bookId") String bookId,
+	public Book update(@PathVariable("bookId") String bookId,
 			@PathVariable("incrementCount") int incrementCount) {
 
 		return repository.findById(bookId).map(book -> {
